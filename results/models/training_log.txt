@@ -1,0 +1,256 @@
+PathSnap model comparison  (2026-11-18 14:19, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M1_LogReg (Linear/probabilistic) ...
+    fold 1/5 done: macro-F1 0.9162  Top-1 0.8798
+    fold 2/5 done: macro-F1 0.9303  Top-1 0.9193
+    fold 3/5 done: macro-F1 0.9511  Top-1 0.9343
+    fold 4/5 done: macro-F1 0.9058  Top-1 0.8317
+    fold 5/5 done: macro-F1 0.9359  Top-1 0.9118
+==============================================================================
+M1_LogReg   [Linear/probabilistic]
+config : C=1.0, lbfgs, max_iter=200, standardised inputs
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9162   Top-1 0.8798   log loss 0.1094
+  fold 2:  macro-F1 0.9303   Top-1 0.9193   log loss 0.0747
+  fold 3:  macro-F1 0.9511   Top-1 0.9343   log loss 0.0624
+  fold 4:  macro-F1 0.9058   Top-1 0.8317   log loss 0.1071
+  fold 5:  macro-F1 0.9359   Top-1 0.9118   log loss 0.0960
+  MEAN  :  macro-F1 0.9278 +/- 0.0157   Top-1 0.8954 +/- 0.0365   log loss 0.0899   (20.6 s)
+Final fit on all 80 training trips: 4.0 s   train macro-F1 0.9294   (gap to CV +0.0015)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 96.74 %   macro-F1 92.28 %   precision 86.14 %   recall 86.68 %
+  Top-1 road accuracy 89.10 %   Top-1 + Viterbi 91.47 %   log loss 0.0846   continuity 95.80 %
+  confusion: TN 138,325  FP 2,667  FN 2,548  TP 16,574
+  inference 6.0 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M1_LogReg          0.9278   0.8954    0.9674   0.9228  0.8910    0.9147   0.0846      4.0
+PathSnap model comparison  (2026-11-18 14:19, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M2_GaussianNB (Linear/probabilistic) ...
+    fold 1/5 done: macro-F1 0.8441  Top-1 0.8487
+    fold 2/5 done: macro-F1 0.8537  Top-1 0.9019
+    fold 3/5 done: macro-F1 0.8711  Top-1 0.9209
+    fold 4/5 done: macro-F1 0.8462  Top-1 0.8253
+    fold 5/5 done: macro-F1 0.8633  Top-1 0.8943
+==============================================================================
+M2_GaussianNB   [Linear/probabilistic]
+config : var_smoothing=1e-9
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.8441   Top-1 0.8487   log loss 0.9915
+  fold 2:  macro-F1 0.8537   Top-1 0.9019   log loss 0.7778
+  fold 3:  macro-F1 0.8711   Top-1 0.9209   log loss 0.7053
+  fold 4:  macro-F1 0.8462   Top-1 0.8253   log loss 0.7985
+  fold 5:  macro-F1 0.8633   Top-1 0.8943   log loss 0.9273
+  MEAN  :  macro-F1 0.8557 +/- 0.0102   Top-1 0.8782 +/- 0.0355   log loss 0.8401   (4.8 s)
+Final fit on all 80 training trips: 0.3 s   train macro-F1 0.8571   (gap to CV +0.0014)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 92.29 %   macro-F1 84.72 %   precision 61.96 %   recall 91.74 %
+  Top-1 road accuracy 86.50 %   Top-1 + Viterbi 89.59 %   log loss 0.8683   continuity 95.72 %
+  confusion: TN 130,220  FP 10,772  FN 1,580  TP 17,542
+  inference 10.1 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M2_GaussianNB      0.8557   0.8782    0.9229   0.8472  0.8650    0.8959   0.8683      0.3
+PathSnap model comparison  (2026-11-18 14:20, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M3_DecisionTree (Tree-based) ...
+    fold 1/5 done: macro-F1 0.9244  Top-1 0.8772
+    fold 2/5 done: macro-F1 0.9514  Top-1 0.9256
+    fold 3/5 done: macro-F1 0.9666  Top-1 0.9418
+    fold 4/5 done: macro-F1 0.9123  Top-1 0.8303
+    fold 5/5 done: macro-F1 0.9414  Top-1 0.9010
+==============================================================================
+M3_DecisionTree   [Tree-based]
+config : max_depth=12, min_samples_leaf=20
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9244   Top-1 0.8772   log loss 0.1895
+  fold 2:  macro-F1 0.9514   Top-1 0.9256   log loss 0.0695
+  fold 3:  macro-F1 0.9666   Top-1 0.9418   log loss 0.0550
+  fold 4:  macro-F1 0.9123   Top-1 0.8303   log loss 0.1437
+  fold 5:  macro-F1 0.9414   Top-1 0.9010   log loss 0.1281
+  MEAN  :  macro-F1 0.9392 +/- 0.0192   Top-1 0.8952 +/- 0.0392   log loss 0.1172   (115.1 s)
+Final fit on all 80 training trips: 28.5 s   train macro-F1 0.9618   (gap to CV +0.0226)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 97.23 %   macro-F1 93.44 %   precision 88.05 %   recall 88.87 %
+  Top-1 road accuracy 89.37 %   Top-1 + Viterbi 91.78 %   log loss 0.1015   continuity 95.61 %
+  confusion: TN 138,685  FP 2,307  FN 2,128  TP 16,994
+  inference 1.2 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M3_DecisionTree    0.9392   0.8952    0.9723   0.9344  0.8937    0.9178   0.1015     28.5
+PathSnap model comparison  (2026-11-18 14:22, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M4_RandomForest (Ensemble (bagging)) ...
+    fold 1/5 done: macro-F1 0.9285  Top-1 0.8803
+    fold 2/5 done: macro-F1 0.9581  Top-1 0.9324
+    fold 3/5 done: macro-F1 0.9692  Top-1 0.9445
+    fold 4/5 done: macro-F1 0.9199  Top-1 0.8411
+    fold 5/5 done: macro-F1 0.9467  Top-1 0.9088
+==============================================================================
+M4_RandomForest   [Ensemble (bagging)]
+config : n_estimators=60, max_depth=14, min_samples_leaf=10, max_samples=0.5
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9285   Top-1 0.8803   log loss 0.0810
+  fold 2:  macro-F1 0.9581   Top-1 0.9324   log loss 0.0450
+  fold 3:  macro-F1 0.9692   Top-1 0.9445   log loss 0.0369
+  fold 4:  macro-F1 0.9199   Top-1 0.8411   log loss 0.0792
+  fold 5:  macro-F1 0.9467   Top-1 0.9088   log loss 0.0642
+  MEAN  :  macro-F1 0.9445 +/- 0.0182   Top-1 0.9014 +/- 0.0373   log loss 0.0612   (43.4 s)
+Final fit on all 80 training trips: 10.1 s   train macro-F1 0.9614   (gap to CV +0.0169)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 97.62 %   macro-F1 94.21 %   precision 92.05 %   recall 87.60 %
+  Top-1 road accuracy 90.42 %   Top-1 + Viterbi 95.63 %   log loss 0.0600   continuity 96.06 %
+  confusion: TN 139,545  FP 1,447  FN 2,371  TP 16,751
+  inference 5.5 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M4_RandomForest    0.9445   0.9014    0.9762   0.9421  0.9042    0.9563   0.0600     10.1
+PathSnap model comparison  (2026-11-18 14:23, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M5_HistGB (Boosting (sklearn)) ...
+    fold 1/5 done: macro-F1 0.9296  Top-1 0.8763
+    fold 2/5 done: macro-F1 0.9582  Top-1 0.9332
+    fold 3/5 done: macro-F1 0.9695  Top-1 0.9428
+    fold 4/5 done: macro-F1 0.9241  Top-1 0.8511
+    fold 5/5 done: macro-F1 0.9465  Top-1 0.9042
+==============================================================================
+M5_HistGB   [Boosting (sklearn)]
+config : max_iter=200, lr=0.1, max_leaf_nodes=31
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9296   Top-1 0.8763   log loss 0.0862
+  fold 2:  macro-F1 0.9582   Top-1 0.9332   log loss 0.0458
+  fold 3:  macro-F1 0.9695   Top-1 0.9428   log loss 0.0406
+  fold 4:  macro-F1 0.9241   Top-1 0.8511   log loss 0.0855
+  fold 5:  macro-F1 0.9465   Top-1 0.9042   log loss 0.0673
+  MEAN  :  macro-F1 0.9456 +/- 0.0170   Top-1 0.9015 +/- 0.0343   log loss 0.0651   (12.5 s)
+Final fit on all 80 training trips: 2.1 s   train macro-F1 0.9618   (gap to CV +0.0163)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 97.70 %   macro-F1 94.47 %   precision 91.52 %   recall 88.99 %
+  Top-1 road accuracy 91.26 %   Top-1 + Viterbi 95.73 %   log loss 0.0612   continuity 96.12 %
+  confusion: TN 139,416  FP 1,576  FN 2,106  TP 17,016
+  inference 9.6 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M5_HistGB          0.9456   0.9015    0.9770   0.9447  0.9126    0.9573   0.0612      2.1
+PathSnap model comparison  (2026-11-18 14:23, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M6_LightGBM (Boosting (LightGBM)) ...
+    fold 1/5 done: macro-F1 0.9311  Top-1 0.8805
+    fold 2/5 done: macro-F1 0.9600  Top-1 0.9350
+    fold 3/5 done: macro-F1 0.9704  Top-1 0.9470
+    fold 4/5 done: macro-F1 0.9235  Top-1 0.8513
+    fold 5/5 done: macro-F1 0.9478  Top-1 0.9177
+==============================================================================
+M6_LightGBM   [Boosting (LightGBM)]
+config : n_estimators=300, lr=0.05, num_leaves=63, min_child_samples=20
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9311   Top-1 0.8805   log loss 0.0881
+  fold 2:  macro-F1 0.9600   Top-1 0.9350   log loss 0.0425
+  fold 3:  macro-F1 0.9704   Top-1 0.9470   log loss 0.0344
+  fold 4:  macro-F1 0.9235   Top-1 0.8513   log loss 0.0819
+  fold 5:  macro-F1 0.9478   Top-1 0.9177   log loss 0.0643
+  MEAN  :  macro-F1 0.9466 +/- 0.0174   Top-1 0.9063 +/- 0.0355   log loss 0.0623   (18.9 s)
+Final fit on all 80 training trips: 3.7 s   train macro-F1 0.9743   (gap to CV +0.0277)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 97.93 %   macro-F1 95.04 %   precision 92.29 %   recall 90.23 %
+  Top-1 road accuracy 92.34 %   Top-1 + Viterbi 95.02 %   log loss 0.0545   continuity 96.61 %
+  confusion: TN 139,551  FP 1,441  FN 1,868  TP 17,254
+  inference 17.6 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M6_LightGBM        0.9466   0.9063    0.9793   0.9504  0.9234    0.9502   0.0545      3.7
+PathSnap model comparison  (2026-11-18 14:24, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M7_XGBoost (Boosting (XGBoost)) ...
+    fold 1/5 done: macro-F1 0.9303  Top-1 0.8814
+    fold 2/5 done: macro-F1 0.9596  Top-1 0.9358
+    fold 3/5 done: macro-F1 0.9700  Top-1 0.9479
+    fold 4/5 done: macro-F1 0.9227  Top-1 0.8529
+    fold 5/5 done: macro-F1 0.9473  Top-1 0.9081
+==============================================================================
+M7_XGBoost   [Boosting (XGBoost)]
+config : n_estimators=300, lr=0.1, max_depth=6, hist
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9303   Top-1 0.8814   log loss 0.0889
+  fold 2:  macro-F1 0.9596   Top-1 0.9358   log loss 0.0424
+  fold 3:  macro-F1 0.9700   Top-1 0.9479   log loss 0.0344
+  fold 4:  macro-F1 0.9227   Top-1 0.8529   log loss 0.0823
+  fold 5:  macro-F1 0.9473   Top-1 0.9081   log loss 0.0654
+  MEAN  :  macro-F1 0.9460 +/- 0.0176   Top-1 0.9052 +/- 0.0348   log loss 0.0627   (15.1 s)
+Final fit on all 80 training trips: 3.3 s   train macro-F1 0.9734   (gap to CV +0.0274)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 97.81 %   macro-F1 94.71 %   precision 92.17 %   recall 89.22 %
+  Top-1 road accuracy 91.77 %   Top-1 + Viterbi 94.95 %   log loss 0.0560   continuity 96.85 %
+  confusion: TN 139,542  FP 1,450  FN 2,062  TP 17,060
+  inference 5.7 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M7_XGBoost         0.9460   0.9052    0.9781   0.9471  0.9177    0.9495   0.0560      3.3
+PathSnap model comparison  (2026-11-18 14:24, seed 42)
+train: 1,440,044 (fix, candidate) rows from 80 trips, fitted on every 3rd fix = 480,162 rows; 186,072/208,417 fixes with reliable label
+test : 160,114 rows, 19,160 fixes from 10 student-test trips; 32 features
+
+>>> training M8_MLP (Neural network) ...
+    fold 1/5 done: macro-F1 0.9205  Top-1 0.8758
+    fold 2/5 done: macro-F1 0.9518  Top-1 0.9307
+    fold 3/5 done: macro-F1 0.9637  Top-1 0.9406
+    fold 4/5 done: macro-F1 0.9150  Top-1 0.8436
+    fold 5/5 done: macro-F1 0.9429  Top-1 0.9080
+==============================================================================
+M8_MLP   [Neural network]
+config : hidden=(64,32), adam lr=1e-3, alpha=1e-4, batch=1024, 15 epochs
+------------------------------------------------------------------------------
+5-fold GroupKFold CV on 80 training trips (no trip in two folds):
+  fold 1:  macro-F1 0.9205   Top-1 0.8758   log loss 0.1013
+  fold 2:  macro-F1 0.9518   Top-1 0.9307   log loss 0.0515
+  fold 3:  macro-F1 0.9637   Top-1 0.9406   log loss 0.0436
+  fold 4:  macro-F1 0.9150   Top-1 0.8436   log loss 0.0881
+  fold 5:  macro-F1 0.9429   Top-1 0.9080   log loss 0.0722
+  MEAN  :  macro-F1 0.9388 +/- 0.0185   Top-1 0.8998 +/- 0.0358   log loss 0.0713   (113.7 s)
+Final fit on all 80 training trips: 52.2 s   train macro-F1 0.9478   (gap to CV +0.0090)
+Student-test (10 unseen trips, 19,160 GPS fixes):
+  candidate accuracy 97.53 %   macro-F1 93.94 %   precision 92.75 %   recall 86.06 %
+  Top-1 road accuracy 90.86 %   Top-1 + Viterbi 94.52 %   log loss 0.0642   continuity 96.57 %
+  confusion: TN 139,705  FP 1,287  FN 2,665  TP 16,457
+  inference 8.1 ms per 1000 fixes
+==============================================================================
+SUMMARY (selection metric = CV macro-F1)
+model               CV F1  CV Top1  Test acc  Test F1   Top-1  +Viterbi  logloss  train s
+-----------------------------------------------------------------------------------------
+M8_MLP             0.9388   0.8998    0.9753   0.9394  0.9086    0.9452   0.0642     52.2
