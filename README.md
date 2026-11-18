@@ -48,7 +48,7 @@ Method notes: `docs/PREPROCESSING_FEATURES.md`, `docs/MODEL_SELECTION.md`, `docs
 ## Repository layout
 | Folder | Contents |
 |---|---|
-| `src/` | all pipeline code: loading/projection (`data_utils.py`), audit & cleaning (`preprocess.py`), EDA (`eda.py`), candidates/labels/features (`features.py`, `build_cache.py`), 8-model comparison (`models_zoo.py`, `run_experiments.py`, `train_all.py`, `show_results.py`, `make_figures.py`), Bayesian optimisation (`tune_bayes.py`), final model (`train_final.py`), HMM/Viterbi (`hmm.py`, `hmm_experiments.py`), inference pipeline (`pipeline.py`), Folium maps (`folium_maps.py`, `screenshot_maps.py`), report (`make_report.py`) |
+| `src/` | all pipeline code: loading/projection (`data_utils.py`), audit & cleaning (`preprocess.py`), EDA (`eda.py`), candidates/labels/features (`features.py`, `build_cache.py`), 8-model comparison (`models_zoo.py`, `run_experiments.py`, `train_all.py`, `show_results.py`, `make_figures.py`), Bayesian optimisation (`tune_bayes.py`), final model (`train_final.py`), HMM/Viterbi (`hmm.py`, `hmm_experiments.py`), inference pipeline (`pipeline.py`), Folium maps (`folium_maps.py`, `screenshot_maps.py`) |
 | `api/` | FastAPI backend (`main.py`): endpoints, model loading, server-side scoring, request logs |
 | `ui/` | evaluator UI (`index.html` with Leaflet, `serve_ui.py` static server) |
 | `artifacts/` | saved models and configs: final classifier, `model_config.json` (features, radius, K, params), `decode_config.json` (HMM parameters) |
@@ -78,7 +78,7 @@ Data (not in the repo): put the course dataset under `data_raw/` as
 | 6 Final model | `python src/train_final.py` | `artifacts/`, `results/models/final_model_eval.json` |
 | 7 HMM tuning + comparison | `python src/hmm_experiments.py` | `artifacts/decode_config.json`, `results/hmm/` |
 | 8 Folium maps | `python src/folium_maps.py` then `python src/screenshot_maps.py` | `results/maps/` (interactive HTML is generated locally and not committed; PNG screenshots are committed) |
-| 9 Report | `python src/make_report.py` | `report/PathSnap_Technical_Report.pdf` |
+| 9 Report | written by the team from the result files above | `report/PathSnap_Technical_Report.pdf` |
 
 Seed 42 everywhere. Selection uses 5-fold GroupKFold by trip on the 80 training trips; student-test is used for
 development comparison; the evaluator trips are used only by the API at evaluation time.
