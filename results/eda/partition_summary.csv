@@ -1,0 +1,3 @@
+partition,trips,gps_total,gps_med,arcs_med,nodes_med,route_med,nan,dt_gt5,nonmono,step_gt100,multi_comp_trips,isolated,route_disconnected_pairs
+student_test,10,19160,1420.0,13145.0,6596.5,250.0,0,44,0,0,10,0,1
+train,80,208417,1529.0,19526.5,9608.0,280.0,0,1216,0,228,79,0,13
