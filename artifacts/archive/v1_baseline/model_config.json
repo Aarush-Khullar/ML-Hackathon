@@ -1,0 +1,40 @@
+{
+ "features": [
+  "dist",
+  "frac",
+  "proj_out",
+  "arc_len",
+  "cos_hd",
+  "abs_ang",
+  "speed",
+  "hd_valid",
+  "dist_rank",
+  "dist_gap",
+  "dist_ratio",
+  "n_cand",
+  "ctx_dist_mean",
+  "ctx_dist_max",
+  "ctx_prog",
+  "out_deg_v",
+  "in_deg_u",
+  "has_twin",
+  "same_prev",
+  "same_next",
+  "conn_prev",
+  "conn_next",
+  "dmin_end"
+ ],
+ "R": 60.0,
+ "K": 12,
+ "params": {
+  "n_estimators": 475,
+  "learning_rate": 0.011484990270664682,
+  "num_leaves": 66,
+  "min_child_samples": 44,
+  "subsample": 0.830285005251768,
+  "colsample_bytree": 0.882518177143526,
+  "reg_lambda": 0.32966358735386303,
+  "reg_alpha": 0.5822428407152661,
+  "subsample_freq": 1
+ }
+}

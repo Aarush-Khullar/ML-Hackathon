@@ -1,0 +1,105 @@
+====================================================================================================
+PathSnap FINAL RESULTS  (2026-11-18 14:16)
+Training : 80 train trips, 480,162 (fix, road) rows, 32 features
+Test     : student_test    10 trips, 19,160 GPS fixes, 160,114 candidate rows  (never used for training/tuning)
+Test     : evaluator_test  10 trips, 19,674 GPS fixes, 159,628 candidate rows  (never used for training/tuning)
+TRAINING uses ONLY data_raw/train. student_test and evaluator_test are used ONLY for prediction (testing).
+Saved final model and Viterbi costs are loaded as-is (final model created 2026-11-18 14:14, never refitted here).
+====================================================================================================
+
+[1/9] M1_LogReg  (Linear/probabilistic; C=1.0, lbfgs, max_iter=200, standardised inputs)
+   trained on 80 train trips in 1.5 s
+   student_test    accuracy  96.74 %  macro-F1  92.28 %  precision  86.14 %  recall  86.68 %  Top-1  89.10 %  Top-1+Viterbi  91.47 %
+   evaluator_test  accuracy  97.89 %  macro-F1  95.10 %  precision  91.52 %  recall  91.30 %  Top-1  92.85 %  Top-1+Viterbi  95.20 %
+
+[2/9] M2_GaussianNB  (Linear/probabilistic; var_smoothing=1e-9)
+   trained on 80 train trips in 0.1 s
+   student_test    accuracy  92.29 %  macro-F1  84.72 %  precision  61.96 %  recall  91.74 %  Top-1  86.50 %  Top-1+Viterbi  89.59 %
+   evaluator_test  accuracy  93.59 %  macro-F1  87.38 %  precision  66.85 %  recall  95.14 %  Top-1  91.70 %  Top-1+Viterbi  93.20 %
+
+[3/9] M3_DecisionTree  (Tree-based; max_depth=12, min_samples_leaf=20)
+   trained on 80 train trips in 12.7 s
+   student_test    accuracy  97.23 %  macro-F1  93.44 %  precision  88.05 %  recall  88.87 %  Top-1  89.37 %  Top-1+Viterbi  91.78 %
+   evaluator_test  accuracy  98.06 %  macro-F1  95.48 %  precision  92.64 %  recall  91.50 %  Top-1  93.01 %  Top-1+Viterbi  95.14 %
+
+[4/9] M4_RandomForest  (Ensemble (bagging); n_estimators=60, max_depth=14, min_samples_leaf=10, max_samples=0.5)
+   trained on 80 train trips in 10.9 s
+   student_test    accuracy  97.62 %  macro-F1  94.21 %  precision  92.05 %  recall  87.60 %  Top-1  90.42 %  Top-1+Viterbi  95.63 %
+   evaluator_test  accuracy  98.36 %  macro-F1  96.13 %  precision  95.37 %  recall  91.11 %  Top-1  93.77 %  Top-1+Viterbi  96.43 %
+
+[5/9] M5_HistGB  (Boosting (sklearn); max_iter=200, lr=0.1, max_leaf_nodes=31)
+   trained on 80 train trips in 4.2 s
+   student_test    accuracy  97.70 %  macro-F1  94.47 %  precision  91.52 %  recall  88.99 %  Top-1  91.26 %  Top-1+Viterbi  95.73 %
+   evaluator_test  accuracy  98.35 %  macro-F1  96.14 %  precision  94.40 %  recall  92.06 %  Top-1  93.89 %  Top-1+Viterbi  96.31 %
+
+[6/9] M6_LightGBM  (Boosting (LightGBM); n_estimators=300, lr=0.05, num_leaves=63, min_child_samples=20)
+   trained on 80 train trips in 3.2 s
+   student_test    accuracy  97.93 %  macro-F1  95.04 %  precision  92.29 %  recall  90.23 %  Top-1  92.34 %  Top-1+Viterbi  95.02 %
+   evaluator_test  accuracy  98.43 %  macro-F1  96.32 %  precision  94.94 %  recall  92.18 %  Top-1  94.00 %  Top-1+Viterbi  95.64 %
+
+[7/9] M7_XGBoost  (Boosting (XGBoost); n_estimators=300, lr=0.1, max_depth=6, hist)
+   trained on 80 train trips in 3.1 s
+   student_test    accuracy  97.81 %  macro-F1  94.71 %  precision  92.17 %  recall  89.22 %  Top-1  91.77 %  Top-1+Viterbi  94.95 %
+   evaluator_test  accuracy  98.37 %  macro-F1  96.18 %  precision  94.60 %  recall  92.02 %  Top-1  93.79 %  Top-1+Viterbi  95.40 %
+
+[8/9] M8_MLP  (Neural network; hidden=(64,32), adam lr=1e-3, alpha=1e-4, batch=1024, 15 epochs)
+   trained on 80 train trips in 18.6 s
+   student_test    accuracy  97.53 %  macro-F1  93.94 %  precision  92.75 %  recall  86.06 %  Top-1  90.86 %  Top-1+Viterbi  94.52 %
+   evaluator_test  accuracy  98.00 %  macro-F1  95.20 %  precision  95.69 %  recall  87.74 %  Top-1  93.41 %  Top-1+Viterbi  94.94 %
+
+[9/9] FINAL saved model artifacts/lgbm_final.joblib  (Bayesian-tuned LightGBM)
+   student_test    accuracy  97.96 %  macro-F1  95.10 %  precision  92.44 %  recall  90.31 %  Top-1  92.32 %  Top-1+Viterbi  95.18 %
+   evaluator_test  accuracy  98.45 %  macro-F1  96.36 %  precision  95.14 %  recall  92.12 %  Top-1  94.07 %  Top-1+Viterbi  95.54 %
+
+====================================================================================================
+FINAL TABLE - STUDENT_TEST  (19,160 GPS fixes, 10 unseen trips)   sorted by Top-1 + Viterbi
+----------------------------------------------------------------------------------------------------
+Model               Accuracy  Macro-F1  Precision   Recall  Log loss    Top-1  Top-1+Viterbi
+----------------------------------------------------------------------------------------------------
+M5_HistGB             97.70%    94.47%     91.52%   88.99%    0.0612   91.26%         95.73%
+M4_RandomForest       97.62%    94.21%     92.05%   87.60%    0.0600   90.42%         95.63%
+LightGBM_FINAL        97.96%    95.10%     92.44%   90.31%    0.0534   92.32%         95.18%
+M6_LightGBM           97.93%    95.04%     92.29%   90.23%    0.0545   92.34%         95.02%
+M7_XGBoost            97.81%    94.71%     92.17%   89.22%    0.0560   91.77%         94.95%
+M8_MLP                97.53%    93.94%     92.75%   86.06%    0.0642   90.86%         94.52%
+M3_DecisionTree       97.23%    93.44%     88.05%   88.87%    0.1015   89.37%         91.78%
+M1_LogReg             96.74%    92.28%     86.14%   86.68%    0.0846   89.10%         91.47%
+M2_GaussianNB         92.29%    84.72%     61.96%   91.74%    0.8683   86.50%         89.59%
+
+====================================================================================================
+FINAL TABLE - EVALUATOR_TEST  (19,674 GPS fixes, 10 unseen trips)   sorted by Top-1 + Viterbi
+----------------------------------------------------------------------------------------------------
+Model               Accuracy  Macro-F1  Precision   Recall  Log loss    Top-1  Top-1+Viterbi
+----------------------------------------------------------------------------------------------------
+M4_RandomForest       98.36%    96.13%     95.37%   91.11%    0.0463   93.77%         96.43%
+M5_HistGB             98.35%    96.14%     94.40%   92.06%    0.0466   93.89%         96.31%
+M6_LightGBM           98.43%    96.32%     94.94%   92.18%    0.0433   94.00%         95.64%
+LightGBM_FINAL        98.45%    96.36%     95.14%   92.12%    0.0428   94.07%         95.54%
+M7_XGBoost            98.37%    96.18%     94.60%   92.02%    0.0448   93.79%         95.40%
+M1_LogReg             97.89%    95.10%     91.52%   91.30%    0.0699   92.85%         95.20%
+M3_DecisionTree       98.06%    95.48%     92.64%   91.50%    0.0696   93.01%         95.14%
+M8_MLP                98.00%    95.20%     95.69%   87.74%    0.0560   93.41%         94.94%
+M2_GaussianNB         93.59%    87.38%     66.85%   95.14%    0.6905   91.70%         93.20%
+
+====================================================================================================
+COMBINED (mean of student_test and evaluator_test)
+----------------------------------------------------------------------------------------------------
+Model               Accuracy  Macro-F1    Top-1  Top-1+Viterbi
+M4_RandomForest       97.99%    95.17%   92.09%         96.03%
+M5_HistGB             98.02%    95.30%   92.57%         96.02%
+LightGBM_FINAL        98.21%    95.73%   93.20%         95.36%
+M6_LightGBM           98.18%    95.68%   93.17%         95.33%
+M7_XGBoost            98.09%    95.45%   92.78%         95.17%
+M8_MLP                97.77%    94.57%   92.13%         94.73%
+M3_DecisionTree       97.64%    94.46%   91.19%         93.46%
+M1_LogReg             97.32%    93.69%   90.98%         93.34%
+M2_GaussianNB         92.94%    86.05%   89.10%         91.40%
+
+====================================================================================================
+SELECTED MODEL: Bayesian-tuned LightGBM (artifacts/lgbm_final.joblib)
+  student_test   : accuracy 97.96 %, macro-F1 95.10 %, Top-1 92.32 %, Top-1 + Viterbi 95.18 %
+  evaluator_test : accuracy 98.45 %, macro-F1 96.36 %, Top-1 94.07 %, Top-1 + Viterbi 95.54 %
+Accuracy = every (GPS fix, candidate road) pair classified correctly; inflated because ~88 % of candidates are easy negatives.
+Top-1 = share of GPS fixes whose chosen road is correct (main metric). Viterbi = road-graph decoding of consecutive fixes.
+Saved: results/models/final_results_all_models.csv, results/models/final_results_log.txt
+====================================================================================================

@@ -1,0 +1,36 @@
+{
+ "model": "LightGBM final (Bayesian-tuned, 32 features)",
+ "params": {
+  "n_estimators": 758,
+  "learning_rate": 0.012375478644422275,
+  "num_leaves": 122,
+  "min_child_samples": 74,
+  "subsample": 0.8788441974765937,
+  "colsample_bytree": 0.9394295701363462,
+  "reg_lambda": 0.2880137728548719,
+  "reg_alpha": 0.851214773375358,
+  "subsample_freq": 1,
+  "random_state": 42,
+  "n_jobs": 8,
+  "verbose": -1
+ },
+ "train_time_s": 18.636279821395874,
+ "test_candidate_accuracy": 0.9796020335510949,
+ "test_top1_argmax": 0.9232254697286012,
+ "test_top1_decoded": 0.9517745302713988,
+ "test_macro_f1": 0.9510214263475537,
+ "test_f1_pos": 0.9136070257115649,
+ "test_precision": 0.9243656996038968,
+ "test_recall": 0.9030959104696161,
+ "test_log_loss": 0.053442744733451994,
+ "decode_costs": {
+  "c_next": 1.0,
+  "c_2hop": 3.0,
+  "c_twin": 20.0,
+  "c_jump": 100.0,
+  "alpha": 0.5,
+  "gap_s": 5.0,
+  "c_hop": 1.0,
+  "max_hops": 12
+ }
+}

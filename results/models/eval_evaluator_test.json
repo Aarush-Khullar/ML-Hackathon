@@ -1,0 +1,13 @@
+{
+ "partition": "evaluator_test",
+ "trips": 10,
+ "fixes": 19674,
+ "candidate_accuracy": 0.9843573809106172,
+ "candidate_macro_f1": 0.9633109897905157,
+ "candidate_f1_pos": 0.9355230201151651,
+ "candidate_precision": 0.9498217281879194,
+ "candidate_recall": 0.9216484355125922,
+ "candidate_log_loss": 0.04310245868058706,
+ "top1_argmax": 0.9393615939819051,
+ "top1_viterbi": 0.9557792009759073
+}
