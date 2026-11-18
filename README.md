@@ -5,7 +5,7 @@ TEAM NUMBER - 5
 
 # TEAM MEMBERS LIST:
 
-1) PESUG24CS014 - Aarush Khullar
+1) PES2UG24CS014 - Aarush Khullar
 
 2) PES2UG24CS044 - Aks Raj Singh
 
