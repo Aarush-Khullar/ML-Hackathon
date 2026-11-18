@@ -1,0 +1,41 @@
+HMM experiments with final classifier artifacts/lgbm_final.joblib params {'n_estimators': 758, 'learning_rate': 0.012375478644422275, 'num_leaves': 122, 'min_child_samples': 74, 'subsample': 0.8788441974765937, 'colsample_bytree': 0.9394295701363462, 'reg_lambda': 0.2880137728548719, 'reg_alpha': 0.851214773375358, 'subsample_freq': 1}
+training OOF probabilities in 58 s
+start config train Top-1 0.9269
+  c_twin   = 5      train Top-1 0.9265
+  c_twin   = 20     train Top-1 0.9272  <- better
+  c_jump   = 30     train Top-1 0.9268
+  c_jump   = 100    train Top-1 0.9274  <- better
+  c_2hop   = 2      train Top-1 0.9267
+  c_2hop   = 5      train Top-1 0.9263
+  c_next   = 0.5    train Top-1 0.9240
+  c_next   = 2      train Top-1 0.9273
+  alpha    = 0.5    train Top-1 0.9294  <- better
+  alpha    = 0.7    train Top-1 0.9274
+  alpha    = 1.0    train Top-1 0.9265
+  c_hop    = 0.5    train Top-1 0.9292
+  c_hop    = 2      train Top-1 0.9293
+  max_hops = 4      train Top-1 0.9293
+  max_hops = 12     train Top-1 0.9294  <- better
+best decoder config {'c_next': 1.0, 'c_2hop': 3.0, 'c_twin': 20.0, 'c_jump': 100.0, 'alpha': 0.5, 'gap_s': 5.0, 'c_hop': 1.0, 'max_hops': 12}  train OOF Top-1 0.9294
+
+STUDENT-TEST: classifier-only vs HMM (pointwise + sequence level)
+                 fixes    top1  continuity  breaks  route_precision  route_recall  route_f1  route_lcs_ratio
+method                                                                                                      
+classifier_only  19160  0.9232      0.9661     646           0.9181        0.9010    0.9080           0.8967
+hmm_no_gap       19160  0.9518      0.9996       7           0.9817        0.9177    0.9478           0.9161
+hmm_full         19160  0.9516      0.9997       7           0.9814        0.9175    0.9475           0.9158
+
+per trip Top-1:
+method    classifier_only  hmm_full  hmm_no_gap
+trip                                           
+00000000           0.9525    0.9684      0.9684
+00000007           0.9032    0.8634      0.8634
+00000009           0.8932    0.9266      0.9266
+00000040           0.9613    0.9756      0.9756
+00000052           0.9809    0.9885      0.9885
+00000056           0.9250    0.9578      0.9578
+00000065           0.8594    0.8737      0.8737
+00000076           0.9435    0.9778      0.9798
+00000077           0.8898    0.9601      0.9601
+00000091           0.9222    0.9348      0.9348
+saved -> results/hmm/

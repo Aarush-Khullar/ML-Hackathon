@@ -1,0 +1,12 @@
+{
+ "c_next": 1.0,
+ "c_2hop": 3.0,
+ "c_twin": 20.0,
+ "c_jump": 100.0,
+ "alpha": 0.5,
+ "gap_s": 5.0,
+ "c_hop": 1.0,
+ "max_hops": 12,
+ "tuned_on": "out-of-fold probabilities of the final classifier on the 80 TRAINING trips (5-fold GroupKFold); coordinate search; objective pointwise Top-1 after decoding",
+ "train_oof_top1_decoded": 0.9294412915430587
+}
