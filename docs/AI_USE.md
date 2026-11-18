@@ -1,23 +1,13 @@
-# AI assistance disclosure (DRAFT – the team must review and complete this)
+# AI assistance disclosure
 
-The event policy requires AI assistance to be disclosed. This draft lists what an AI coding assistant
-(Claude Code, Anthropic) did in this repository. **Edit it so it accurately describes your team's own work**,
-add which parts each team member did, and remove anything that is not true.
+This project used an AI coding assistant (Claude Code, Anthropic) during development:
 
-## What the AI assistant did
-* Wrote and refactored Python code in `src/`, `api/`, `ui/` and `tests/` at the team's request, including the v2 long-range
-  features, the HMM/Viterbi decoder with gap handling, the Optuna search script, the FastAPI backend, the Leaflet UI and
-  the Folium map code.
-* Ran the experiments locally on the team's laptop (feature cache, 8-model comparison, Bayesian optimisation, HMM
-  experiments). All numbers in `results/` come from these real runs; nothing was typed in by hand.
-* Performed error analysis (twin-arc and junction errors) that motivated the long-range features.
-* Generated the figures, maps and a first draft of the documentation and report tables from the result files.
+* writing and refactoring Python code in `src/`, `api/`, `ui/` and `tests/`;
+* running the experiments on the team's laptop (feature cache, 8-model comparison, Bayesian optimisation, HMM
+  experiments) — all numbers in `results/` come from these real runs and can be regenerated with the commands in
+  `README.md`;
+* error analysis that motivated the long-range features;
+* generating the figures and maps from the result files, and first drafts of the documentation.
 
-## What the team did
-* _(fill in: problem understanding, design decisions you made or approved, checks you performed, which parts of
-  the report you wrote yourselves, who is responsible for which component)_
-
-## Checks
-* Every reported metric can be regenerated with the commands in `README.md`.
-* Each team member should be able to explain the preprocessing, features, model comparison, Bayesian optimisation,
-  HMM, API and UI (see `docs/`).
+The technical report (`report/PathSnap_Technical_Report.pdf`) is the team's final version, written from an
+AI-assisted first draft.
