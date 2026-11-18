@@ -1,0 +1,59 @@
+Bayesian optimisation of LightGBM: 40 trials, TPE sampler (seed 42), 5-fold GroupKFold on 80 training trips
+  trial   0  COMPLETE CV macro-F1 0.9466   best so far 0.9466 (trial 0)
+  trial   1  COMPLETE CV macro-F1 0.9452   best so far 0.9466 (trial 0)
+  trial   2  COMPLETE CV macro-F1 0.9463   best so far 0.9466 (trial 0)
+  trial   3  COMPLETE CV macro-F1 0.9467   best so far 0.9467 (trial 3)
+  trial   4  COMPLETE CV macro-F1 0.9463   best so far 0.9467 (trial 3)
+  trial   5  PRUNED   CV macro-F1 0.9448   best so far 0.9467 (trial 3)
+  trial   6  PRUNED   CV macro-F1 0.9440   best so far 0.9467 (trial 3)
+  trial   7  COMPLETE CV macro-F1 0.9470   best so far 0.9470 (trial 7)
+  trial   8  PRUNED   CV macro-F1 0.9423   best so far 0.9470 (trial 7)
+  trial   9  COMPLETE CV macro-F1 0.9465   best so far 0.9470 (trial 7)
+  trial  10  PRUNED   CV macro-F1 0.9457   best so far 0.9470 (trial 7)
+  trial  11  COMPLETE CV macro-F1 0.9464   best so far 0.9470 (trial 7)
+  trial  12  PRUNED   CV macro-F1 0.9454   best so far 0.9470 (trial 7)
+  trial  13  COMPLETE CV macro-F1 0.9469   best so far 0.9470 (trial 7)
+  trial  14  COMPLETE CV macro-F1 0.9464   best so far 0.9470 (trial 7)
+  trial  15  COMPLETE CV macro-F1 0.9472   best so far 0.9472 (trial 15)
+  trial  16  COMPLETE CV macro-F1 0.9467   best so far 0.9472 (trial 15)
+  trial  17  PRUNED   CV macro-F1 0.9458   best so far 0.9472 (trial 15)
+  trial  18  COMPLETE CV macro-F1 0.9471   best so far 0.9472 (trial 15)
+  trial  19  COMPLETE CV macro-F1 0.9471   best so far 0.9472 (trial 15)
+  trial  20  PRUNED   CV macro-F1 0.9454   best so far 0.9472 (trial 15)
+  trial  21  COMPLETE CV macro-F1 0.9470   best so far 0.9472 (trial 15)
+  trial  22  PRUNED   CV macro-F1 0.9463   best so far 0.9472 (trial 15)
+  trial  23  PRUNED   CV macro-F1 0.9464   best so far 0.9472 (trial 15)
+  trial  24  PRUNED   CV macro-F1 0.9461   best so far 0.9472 (trial 15)
+  trial  25  COMPLETE CV macro-F1 0.9470   best so far 0.9472 (trial 15)
+  trial  26  COMPLETE CV macro-F1 0.9468   best so far 0.9472 (trial 15)
+  trial  27  PRUNED   CV macro-F1 0.9464   best so far 0.9472 (trial 15)
+  trial  28  PRUNED   CV macro-F1 0.9463   best so far 0.9472 (trial 15)
+  trial  29  PRUNED   CV macro-F1 0.9545   best so far 0.9472 (trial 15)
+  trial  30  PRUNED   CV macro-F1 0.9464   best so far 0.9472 (trial 15)
+  trial  31  COMPLETE CV macro-F1 0.9468   best so far 0.9472 (trial 15)
+  trial  32  PRUNED   CV macro-F1 0.9546   best so far 0.9472 (trial 15)
+  trial  33  COMPLETE CV macro-F1 0.9473   best so far 0.9473 (trial 33)
+  trial  34  PRUNED   CV macro-F1 0.9461   best so far 0.9473 (trial 33)
+  trial  35  PRUNED   CV macro-F1 0.9464   best so far 0.9473 (trial 33)
+  trial  36  PRUNED   CV macro-F1 0.9459   best so far 0.9473 (trial 33)
+  trial  37  COMPLETE CV macro-F1 0.9471   best so far 0.9473 (trial 33)
+  trial  38  PRUNED   CV macro-F1 0.9465   best so far 0.9473 (trial 33)
+  trial  39  PRUNED   CV macro-F1 0.9463   best so far 0.9473 (trial 33)
+
+search finished in 28.0 min; 40 trials (20 pruned). best CV macro-F1 0.9473
+best params: {
+ "n_estimators": 758,
+ "learning_rate": 0.012375478644422275,
+ "num_leaves": 122,
+ "min_child_samples": 74,
+ "subsample": 0.8788441974765937,
+ "colsample_bytree": 0.9394295701363462,
+ "reg_lambda": 0.2880137728548719,
+ "reg_alpha": 0.851214773375358
+}
+
+TUNED vs UNTUNED (same 80 training trips, same 10 student-test trips)
+                        model  cv_macro_f1  student_top1  student_macro_f1  student_log_loss  student_accuracy  train_time_s  inference_ms_per_1000_fixes
+LightGBM untuned (M6 default)       0.9466        0.9234            0.9504            0.0545            0.9793        3.0000                      13.7274
+      LightGBM Bayesian-tuned       0.9473        0.9232            0.9510            0.0534            0.9796       10.9233                      59.7424
+saved -> results/tuning/, artifacts/lgbm_bayes.joblib
