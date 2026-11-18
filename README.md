@@ -119,6 +119,3 @@ Interactive docs: `http://<laptop1-ip>:8000/docs`. Tests: `python tests/test_api
 * No hard-coded predictions: every request runs the full pipeline (features → classifier → HMM).
 * Reference labels per fix are *derived* by aligning fixes to the `.route` arcs (monotone DP); they are not
   independently verified ground truth (see `docs/PREPROCESSING_FEATURES.md`).
-
-## AI assistance
-See `docs/AI_USE.md`.
