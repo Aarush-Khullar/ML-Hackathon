@@ -1,0 +1,33 @@
+{
+ "model": "M2_GaussianNB",
+ "family": "Linear/probabilistic",
+ "config": "var_smoothing=1e-9",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.8294370192782573,
+ "cv_macro_f1_std": 0.014380673782935305,
+ "cv_top1": 0.8467389202366762,
+ "cv_top1_std": 0.04053015036341319,
+ "cv_logloss": 0.8392211318016052,
+ "cv_time_s": 1.543302059173584,
+ "train_time_s": 0.10884737968444824,
+ "train_macro_f1": 0.8256878709494038,
+ "inference_s_per_1000_fixes": 0.0009560012618285878,
+ "test_macro_f1": 0.8185763005466709,
+ "test_f1_pos": 0.6956892046224424,
+ "test_precision": 0.552260364485694,
+ "test_recall": 0.9397552557263884,
+ "test_log_loss": 0.8778281807899475,
+ "test_top1": 0.8249478079331941,
+ "test_continuity": 0.9496697074551745,
+ "test_confusion": [
+  [
+   126423,
+   14569
+  ],
+  [
+   1152,
+   17970
+  ]
+ ]
+}

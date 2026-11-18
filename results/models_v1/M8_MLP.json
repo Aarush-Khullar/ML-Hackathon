@@ -1,0 +1,33 @@
+{
+ "model": "M8_MLP",
+ "family": "Neural network",
+ "config": "hidden=(64,32), adam lr=1e-3, alpha=1e-4, batch=1024, 15 epochs",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.9264452033513468,
+ "cv_macro_f1_std": 0.02455527681410577,
+ "cv_top1": 0.8774850383882914,
+ "cv_top1_std": 0.04537155618366422,
+ "cv_logloss": 0.08256729990243912,
+ "cv_time_s": 57.37165021896362,
+ "train_time_s": 14.645684003829956,
+ "train_macro_f1": 0.936287880058609,
+ "inference_s_per_1000_fixes": 0.001915698260504418,
+ "test_macro_f1": 0.9301203486543302,
+ "test_f1_pos": 0.876757213825177,
+ "test_precision": 0.8861232774276252,
+ "test_recall": 0.867587072481958,
+ "test_log_loss": 0.07267217338085175,
+ "test_top1": 0.8835594989561587,
+ "test_continuity": 0.9626192723078536,
+ "test_confusion": [
+  [
+   138860,
+   2132
+  ],
+  [
+   2532,
+   16590
+  ]
+ ]
+}

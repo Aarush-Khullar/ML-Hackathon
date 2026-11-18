@@ -1,0 +1,33 @@
+{
+ "model": "M3_DecisionTree",
+ "family": "Tree-based",
+ "config": "max_depth=12, min_samples_leaf=20",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.926337584670339,
+ "cv_macro_f1_std": 0.02857763367482211,
+ "cv_top1": 0.8739319837767269,
+ "cv_top1_std": 0.054663753180569825,
+ "cv_logloss": 0.1139585147968272,
+ "cv_time_s": 28.207664251327515,
+ "train_time_s": 6.892742872238159,
+ "train_macro_f1": 0.9437252479399375,
+ "inference_s_per_1000_fixes": 0.00042187396071400175,
+ "test_macro_f1": 0.9267958910631904,
+ "test_f1_pos": 0.8708291337329584,
+ "test_precision": 0.8835306781485468,
+ "test_recall": 0.8584876058989646,
+ "test_log_loss": 0.08921957238372563,
+ "test_top1": 0.8824112734864301,
+ "test_continuity": 0.956485267903953,
+ "test_confusion": [
+  [
+   138828,
+   2164
+  ],
+  [
+   2706,
+   16416
+  ]
+ ]
+}

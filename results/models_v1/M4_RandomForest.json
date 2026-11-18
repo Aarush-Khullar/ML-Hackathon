@@ -1,0 +1,33 @@
+{
+ "model": "M4_RandomForest",
+ "family": "Ensemble (bagging)",
+ "config": "n_estimators=60, max_depth=14, min_samples_leaf=10, max_samples=0.5",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.932149461234087,
+ "cv_macro_f1_std": 0.024567071196323852,
+ "cv_top1": 0.8822263139860652,
+ "cv_top1_std": 0.04556755300644184,
+ "cv_logloss": 0.07406592791453923,
+ "cv_time_s": 66.7404465675354,
+ "train_time_s": 17.7605197429657,
+ "train_macro_f1": 0.9453298291845474,
+ "inference_s_per_1000_fixes": 0.012045837394379873,
+ "test_macro_f1": 0.9324646076055054,
+ "test_f1_pos": 0.8806976246522576,
+ "test_precision": 0.9014346730916658,
+ "test_recall": 0.8608932120071122,
+ "test_log_loss": 0.06711314956212758,
+ "test_top1": 0.8847599164926931,
+ "test_continuity": 0.9572192513368984,
+ "test_confusion": [
+  [
+   139192,
+   1800
+  ],
+  [
+   2660,
+   16462
+  ]
+ ]
+}

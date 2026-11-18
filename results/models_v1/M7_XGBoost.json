@@ -1,0 +1,33 @@
+{
+ "model": "M7_XGBoost",
+ "family": "Boosting (XGBoost)",
+ "config": "n_estimators=300, lr=0.1, max_depth=6, hist",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.9322598687037393,
+ "cv_macro_f1_std": 0.026029732785908165,
+ "cv_top1": 0.883898700594178,
+ "cv_top1_std": 0.04682624755874233,
+ "cv_logloss": 0.07561064511537552,
+ "cv_time_s": 22.99954867362976,
+ "train_time_s": 4.824106216430664,
+ "train_macro_f1": 0.9597511095970006,
+ "inference_s_per_1000_fixes": 0.013261933914057148,
+ "test_macro_f1": 0.938013535293922,
+ "test_f1_pos": 0.8905955196513513,
+ "test_precision": 0.9053433464800907,
+ "test_recall": 0.8763204685702333,
+ "test_log_loss": 0.06395063549280167,
+ "test_top1": 0.8958246346555323,
+ "test_continuity": 0.9652406417112299,
+ "test_confusion": [
+  [
+   139240,
+   1752
+  ],
+  [
+   2365,
+   16757
+  ]
+ ]
+}

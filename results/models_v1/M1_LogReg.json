@@ -1,0 +1,33 @@
+{
+ "model": "M1_LogReg",
+ "family": "Linear/probabilistic",
+ "config": "C=1.0, lbfgs, max_iter=200, standardised inputs",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.9110554790842293,
+ "cv_macro_f1_std": 0.02136108977957681,
+ "cv_top1": 0.8751171568928099,
+ "cv_top1_std": 0.045163298854909974,
+ "cv_logloss": 0.10457679629325867,
+ "cv_time_s": 5.41004204750061,
+ "train_time_s": 1.1524555683135986,
+ "train_macro_f1": 0.9139406026512757,
+ "inference_s_per_1000_fixes": 0.0003607760889296243,
+ "test_macro_f1": 0.9147950378222414,
+ "test_f1_pos": 0.8500779220779221,
+ "test_precision": 0.8444627928578801,
+ "test_recall": 0.8557682250810584,
+ "test_log_loss": 0.09236856549978256,
+ "test_top1": 0.8764613778705637,
+ "test_continuity": 0.9558561392471427,
+ "test_confusion": [
+  [
+   137978,
+   3014
+  ],
+  [
+   2758,
+   16364
+  ]
+ ]
+}

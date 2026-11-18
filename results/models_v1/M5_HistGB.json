@@ -1,0 +1,33 @@
+{
+ "model": "M5_HistGB",
+ "family": "Boosting (sklearn)",
+ "config": "max_iter=200, lr=0.1, max_leaf_nodes=31",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.9328451909429081,
+ "cv_macro_f1_std": 0.025046001765109197,
+ "cv_top1": 0.883067830773063,
+ "cv_top1_std": 0.04626986265065911,
+ "cv_logloss": 0.07649316403213322,
+ "cv_time_s": 15.150947332382202,
+ "train_time_s": 2.687920331954956,
+ "train_macro_f1": 0.9415562225991945,
+ "inference_s_per_1000_fixes": 0.010674432822209558,
+ "test_macro_f1": 0.9348766666266252,
+ "test_f1_pos": 0.8851025491546982,
+ "test_precision": 0.8971314997851311,
+ "test_recall": 0.8733919046124883,
+ "test_log_loss": 0.07068822494961194,
+ "test_top1": 0.8886743215031315,
+ "test_continuity": 0.9601551850686799,
+ "test_confusion": [
+  [
+   139077,
+   1915
+  ],
+  [
+   2421,
+   16701
+  ]
+ ]
+}

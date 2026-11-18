@@ -1,0 +1,33 @@
+{
+ "model": "M6_LightGBM",
+ "family": "Boosting (LightGBM)",
+ "config": "n_estimators=300, lr=0.05, num_leaves=63, min_child_samples=20",
+ "stride": 3,
+ "seed": 42,
+ "cv_macro_f1": 0.9327910822899259,
+ "cv_macro_f1_std": 0.025983067191581964,
+ "cv_top1": 0.8844347282936452,
+ "cv_top1_std": 0.04642201732631168,
+ "cv_logloss": 0.07485463753331147,
+ "cv_time_s": 30.565932750701904,
+ "train_time_s": 5.755446910858154,
+ "train_macro_f1": 0.9586416196847759,
+ "inference_s_per_1000_fixes": 0.04282694519934923,
+ "test_macro_f1": 0.9402474448238816,
+ "test_f1_pos": 0.894543909047442,
+ "test_precision": 0.9089829410494493,
+ "test_recall": 0.8805564271519716,
+ "test_log_loss": 0.062362358941438774,
+ "test_top1": 0.900678496868476,
+ "test_continuity": 0.9627765544720562,
+ "test_confusion": [
+  [
+   139306,
+   1686
+  ],
+  [
+   2284,
+   16838
+  ]
+ ]
+}
