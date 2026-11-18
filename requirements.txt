@@ -1,0 +1,19 @@
+# Tested with Python 3.13 on Windows 11
+numpy==2.3.2
+pandas==2.3.2
+scipy==1.16.2
+scikit-learn==1.7.2
+lightgbm==4.7.0
+xgboost==3.1.1
+optuna==5.1.0
+shapely==2.2.0
+pyproj==3.8.0
+joblib==1.5.2
+matplotlib==3.10.6
+folium==1.0.0
+fastapi==0.139.0
+uvicorn==0.50.2
+pydantic==2.13.4
+httpx                # FastAPI TestClient (tests only)
+reportlab==5.0.1     # technical report PDF
+playwright==1.65.2   # only for screenshot_maps.py (uses installed Edge/Chrome)

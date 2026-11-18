@@ -1,0 +1,4 @@
+partition,n,missing,bad_lat,bad_lon,zero_zero,dup_rows,dup_timestamps,non_monotonic,gaps_gt5s,speed_outliers,jumps_gt100m,removed_by_cleaning,max_gap_s
+evaluator_test,19674,0,0,0,0,0,0,0,16,16,3,0,220.00099999999998
+student_test,19160,0,0,0,0,0,0,0,44,8,0,0,210.0
+train,208417,0,0,0,0,0,0,0,1216,1533,228,0,153064.0
